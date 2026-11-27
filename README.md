@@ -1,6 +1,6 @@
 # Nexus — Claude Code ↔ OpenCode Go bridge
 
-**Status: foundation ready; the bridge is not implemented yet.** See [docs/status.md](docs/status.md).
+**Status: base modules ready (wave 1); the bridge does not run yet.** See [docs/status.md](docs/status.md).
 
 ## Requirements
 Node ≥ 24, OpenCode 2.4.2 signed in to OpenCode Go, Claude Code 2.1.331 or later.
@@ -16,7 +16,7 @@ npm run probe
 
 ## Continue the implementation
 
-Open a Claude Code session in this folder and run `/nexus-wave 1`.
+Open a Claude Code session in this folder and run `/nexus-wave 2`.
 
 ## Documentation
 

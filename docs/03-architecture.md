@@ -36,21 +36,24 @@ Each folder has a single owning work package. Dependencies between modules go th
 
 ```
 pending ─deps ok─► queued ─slot+lock─► starting ─execution.started─► running ⇄ waiting
-   │                 │                     │                            │
-   └─dep failed─► failed                   └─transient failure─► queued (backoff)
+running | waiting ─► completed | failed
+pending | queued | starting ─► failed          (failed dependency, validation, non-transient failure)
+starting ─transient failure─► queued           (backoff, same IDs; ADR-012a)
+running | waiting ─transient failure─► queued  (backoff, attempt +1 and new session; ADR-012b)
 any non-terminal state ─cancel─► cancelling ─interruption confirmed─► cancelled
-running ─► completed | failed
+cancelling ─run ended first─► completed | failed
 ```
 
 - `pending`/`queued` are cancelled directly.
-- `cancelling` becomes `cancelled` once OpenCode confirms the session is not active. If `interrupt` fails it stays in `cancelling` and is retried: something still running is never declared cancelled.
+- `cancelling` becomes `cancelled` once OpenCode confirms the session is not active. If `interrupt` fails it stays in `cancelling` and is retried: something still running is never declared cancelled. If the run ended before the interrupt took effect, the task ends with that real outcome.
 - Timeout: interrupt and end as `failed` with code `TIMEOUT`.
-- Transitions and their `TASK_*` events are written in a single transaction.
+- Transitions and their `TASK_*` events are written in a single transaction. A result is saved after the task reaches the matching terminal status, in that same transaction.
+- The store enforces these rules: terminal states are final; `id`, `agent`, `prompt`, `idempotencyKey` and `createdAt` never change; `promptMessageId` changes only with a higher attempt. The task core changes `sessionId` only with a new attempt. New tasks are `pending` or `queued`, dependencies are inserted first, and at most one active task exists per idempotency key.
 
 ## Starting a task
 
 1. Validate agent, allowed and available model, paths, and dependencies (no cycles).
-2. Generate `id`, `sessionId` (`ses_nexus…`), `promptMessageId` (`msg_nexus…`) and persist **before** calling OpenCode.
+2. Generate `id` (`tsk_` + 20 hex), `sessionId` (`ses_nexus_` + 16 hex), `promptMessageId` (`msg_nexus_` + 16 hex) and persist **before** calling OpenCode. `files` are stored in the canonical form returned by the path guard (resolved through `realpath`), so two aliases of a file cannot bypass the lock.
 3. Make sure the SSE subscription is active.
 4. `createSession` (idempotent) → `prompt` (idempotent).
 5. The prompt includes the task, context, relevant files and, for each dependency, its summary (truncated to 4,000 characters).
@@ -78,12 +81,18 @@ Only the TaskManager emits `TASK_*`. The normalizer translates native events:
 | `session.step.failed` (≠ `aborted`) | `ERROR` | |
 | `session.retry.scheduled` | `WARNING` | `activity` |
 | `permission.asked`, `form.created` | `AGENT_WAITING` | `permission_asked`, `form_asked` |
-| `permission.replied` | — | `permission_resolved` |
+| `permission.replied`, `form.replied`, `form.cancelled` | — | `permission_resolved` |
 | `session.usage.updated` | — | `usage` (cumulative) |
 | `session.execution.succeeded` | `AGENT_FINISHED` | `execution_succeeded` |
 | `session.execution.failed` | `ERROR` | `execution_failed` |
-| `session.execution.interrupted` | `AGENT_FINISHED` | `execution_interrupted` |
+| `session.execution.interrupted` | `AGENT_FINISHED` | `execution_interrupted` (`reason` only if recognised) |
 | `*.delta`, anything else | dropped (not persisted) | |
+
+The caller routes each native event with `sessionIdOf` and drops sessions it does not own; the normalizer also ignores any session other than the bound one. It calls `forget` when an attempt ends and, after a restart, `restore` with the stored stage. Signals are returned even when an event cannot be persisted (no native id). The bus persists first and delivers asynchronously, after the current synchronous work.
+
+## History
+
+`prune` never deletes non-terminal tasks, their direct or transitive dependencies, or their events, and never deletes a task that a kept task depends on.
 
 ## Stages (no percentages)
 

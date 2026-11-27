@@ -58,10 +58,10 @@ Not tested: `ask` permissions end to end, forms, `edit`/`shell` tools, SSE recon
 | ID | Risk | Closed by |
 |---|---|---|
 | R1 | On Windows, a daemon launched from the MCP server might die with its process tree | WP-07 / WP-11 |
-| R2 | Aborting the signal did not reliably close the event stream (the socket stayed open) | WP-02 |
-| R3 | `resource` format of the `edit`/`shell` actions and exact names of the write tools | WP-04 / WP-05 |
-| R4 | `shell` patterns with `*` might allow chained commands | WP-05 (mandatory test) |
+| R2 | ~~Aborting the signal did not reliably close the event stream~~ **Closed** in wave 1: abort through the request options | WP-02 |
+| R3 | ~~`resource` format of the `edit`/`shell` actions and exact names of the write tools~~ **Closed** in wave 1 by a real run, see [04](04-opencode-api.md) | WP-04 / WP-05 |
+| R4 | ~~`shell` patterns with `*` might allow chained commands~~ **Closed** on this machine: each part is evaluated. Limits in [06](06-security.md#known-limits) | WP-05 (mandatory test) |
 | R5 | Hidden agents (title, compaction) might use a model outside `opencode-go` | WP-11 |
 | R6 | `session.log` only returned `log.synced` for a session with no runs: replay unconfirmed | WP-06 (do not depend on it) |
-| R7 | Auto-start on Windows: the default command is `opencode` (a `.cmd`) | WP-02 |
+| R7 | ~~Auto-start on Windows: the default command is `opencode` (a `.cmd`)~~ **Closed** in wave 1: started through `cmd.exe` with `--port 0` | WP-02 |
 | R8 | Plugin distribution: the install cache copies only the plugin folder | WP-10 |

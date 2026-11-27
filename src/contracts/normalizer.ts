@@ -14,7 +14,8 @@ export type TaskSignal =
   | { kind: "execution_started" }
   | { kind: "execution_succeeded" }
   | { kind: "execution_failed"; error: ErrorInfo }
-  | { kind: "execution_interrupted"; reason: "user" | "shutdown" | "superseded" | "inactivity" }
+  /** `reason` is absent when OpenCode sends none or one not listed here. */
+  | { kind: "execution_interrupted"; reason?: "user" | "shutdown" | "superseded" | "inactivity" }
   | { kind: "permission_asked"; requestId: string; action: string; resources: string[] }
   | { kind: "form_asked"; formId: string }
   | { kind: "permission_resolved" }
@@ -32,5 +33,10 @@ export interface NormalizedBatch {
 /** Keeps per-session state (e.g. callID → tool name). No I/O. */
 export interface EventNormalizer {
   normalize(raw: RawOpenCodeEvent, binding: SessionBinding): NormalizedBatch;
+  /**
+   * Seeds the state of a session after a daemon restart, from what the store holds, so stages
+   * do not start over. Replaces any state held for that session.
+   */
+  restore(sessionId: string, state: { stage: Stage; filesModified: boolean }): void;
   forget(sessionId: string): void;
 }

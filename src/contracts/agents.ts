@@ -14,6 +14,7 @@ export interface AgentDefinition {
   steps: number;
   timeoutMs: number;
   maxConcurrency: number;
+  /** Derived by the config loader: `claude-agents` when `from` is set, otherwise `config`. */
   source: "config" | "claude-agents";
   /**
    * Path to a `.md` in `.claude/agents/`. The config loader copies it as is (leaving `description`

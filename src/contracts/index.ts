@@ -5,5 +5,6 @@ export * from "./config.ts";
 export * from "./events.ts";
 export * from "./gateway.ts";
 export * from "./normalizer.ts";
+export * from "./security.ts";
 export * from "./store.ts";
 export * from "./tasks.ts";

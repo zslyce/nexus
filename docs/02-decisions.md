@@ -3,14 +3,16 @@
 ## ADR-001 · OpenCode client: `@opencode/client` 2.4.2 (pinned)
 `fetch`-based Promise entry point, types generated from the server, and `Service.discover()/ensure()`, which resolves URL and credentials without Nexus reading or storing them.
 Rejected: `@opencode-ai/sdk` (v1 API); `@opencode/sdk` (hosts an in-process server instead of reusing the shared service); hand-written HTTP (duplicates discovery and types).
-Accepted cost: it pulls in `effect` (~60 MB on disk; importing the client took ~50 ms). Only `src/server/**` imports it, so it can be replaced.
+Accepted cost: it pulls in `effect` (~60 MB on disk; importing the client took ~50 ms). In application code only `src/server/**` imports it, so it can be replaced. Exceptions outside it: `scripts/probe.mjs`, type-only imports in server unit tests, and `tests/integration/agents*`.
+
+**Accepted risk:** `Service.ensure()` terminates a registered service after three consecutive probe timeouts. Nexus never calls it while the registered process is alive, but a user service that registers during Nexus's own startup poll (up to 120 s) and then stops answering could be terminated. Closing that window would mean replacing `ensure()` with our own startup loop.
 
 ## ADR-002 · Local daemon + thin clients
 One daemon per workspace owns the database, the scheduler and the single SSE subscription. The MCP server, CLI and dashboard are `BridgeApi` clients.
 Reason: tasks survive closing Claude Code and the dashboard, several Claude sessions cannot duplicate runs, and SQLite has a single writer.
 
 ## ADR-003 · Persistence with `node:sqlite`
-Built into Node 24 (SQLite 3.53), no native dependencies. WAL mode, numbered migrations.
+Built into Node 24 (SQLite 3.53), no native dependencies. WAL mode, numbered migrations. `synchronous = NORMAL`: commits survive a process crash, but the last ones can be lost on an operating-system crash or power cut.
 
 ## ADR-004 · IPC: HTTP over a named pipe / Unix socket with a token
 `\\.\pipe\nexus-<workspace hash>` on Windows; `.nexus/daemon.sock` on Unix. The pipe name doubles as a single-instance lock (`EADDRINUSE` = a daemon already exists). Random token in `.nexus/daemon.json`. No TCP port is opened.

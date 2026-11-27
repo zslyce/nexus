@@ -80,4 +80,20 @@ The guide sets no model so it does not lower the judgment of the main session. *
 
 ## Configuration
 
-`<workspace>/nexus.config.json`, merged over the defaults and validated; unknown keys are an error. `workspace` and `stateDir` are derived, never written. In `agents`, the key is the name; `opencodeId` and `source` are derived.
+`<workspace>/nexus.config.json`, merged over the defaults and validated; unknown keys are an error. A missing file means defaults only. `workspace` and `stateDir` are derived, never written. In `agents`, the key is the name (lowercase letters, digits and hyphens, at most 64); `opencodeId` and `source` are derived (`claude-agents` when `from` is set, otherwise `config`).
+
+| Key | Default |
+|---|---|
+| `opencode.allowedProviders` | `["opencode-go"]` (no other value is accepted) |
+| `opencode.autoStart` | `true` |
+| `concurrency.global` | 3 |
+| `tasks.defaultTimeoutMs` · `maxAttempts` | 900000 · 2 |
+| `tasks.backoffBaseMs` · `backoffMaxMs` | 2000 · 60000 |
+| `tasks.permissionPolicy` | `reject` |
+| `tasks.validationCommandPatterns` | `npm test`, `npm run typecheck`, `npm run build`, `node --test`, `tsc`, `pytest`, `go test`, `cargo test` |
+| `history.maxTasks` · `maxAgeDays` · `maxEventsPerTask` | 500 · 30 · 2000 |
+| `agents.<n>.canWrite` · `steps` | `false` · 25 |
+| `agents.<n>.timeoutMs` · `maxConcurrency` | 600000 · 1 |
+| `agents.<n>.permissions` | deny everything |
+
+`agents.<n>.model` is required. `from` must be a `.md` file directly inside `.claude/agents/`; without it, `description` and `systemPrompt` are required.
