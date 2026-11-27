@@ -1,0 +1,108 @@
+[
+ {
+  "id": "msg_nexusprobemwydma5h",
+  "time": {
+   "created": 1795747369464
+  },
+  "text": "Read notes.txt and reply with only its first line.",
+  "type": "user"
+ },
+ {
+  "id": "msg_21ae25206001fNb66CNexJGah7",
+  "time": {
+   "created": 1795747369485,
+   "firstToken": 1795747370840,
+   "streamed": 1795747376157,
+   "completed": 1795747376165
+  },
+  "type": "assistant",
+  "agent": "nexus-probe",
+  "model": {
+   "id": "deepseek-v4.1-flash",
+   "providerID": "opencode-go",
+   "variant": "low"
+  },
+  "content": [
+   {
+    "type": "tool",
+    "id": "call_62de270cc30e43f1834e3ac3",
+    "name": "read",
+    "executed": false,
+    "state": {
+     "status": "completed",
+     "input": {
+      "path": "C:\\workspace\\notes.txt"
+     },
+     "content": [
+      {
+       "type": "text",
+       "text": "Read file C:\\workspace\\notes.txt, lines 1-2\n1: alpha\n2: beta"
+      }
+     ],
+     "metadata": {
+      "truncated": false
+     }
+    },
+    "time": {
+     "created": 1795747370842,
+     "ran": 1795747376156,
+     "completed": 1795747376163
+    }
+   }
+  ],
+  "finish": "tool-calls",
+  "rawFinish": "tool_calls",
+  "cost": 0,
+  "tokens": {
+   "input": 913,
+   "output": 106,
+   "reasoning": 0,
+   "cache": {
+    "read": 0,
+    "write": 0
+   }
+  }
+ },
+ {
+  "id": "msg_21ae26c31001uasLkj3q2lwQcj",
+  "time": {
+   "created": 1795747376182,
+   "firstToken": 1795747377348,
+   "streamed": 1795747377357,
+   "completed": 1795747377358
+  },
+  "type": "assistant",
+  "agent": "nexus-probe",
+  "model": {
+   "id": "deepseek-v4.1-flash",
+   "providerID": "opencode-go",
+   "variant": "low"
+  },
+  "content": [
+   {
+    "type": "text",
+    "text": "alpha"
+   }
+  ],
+  "finish": "stop",
+  "rawFinish": "stop",
+  "cost": 0,
+  "tokens": {
+   "input": 219,
+   "output": 3,
+   "reasoning": 0,
+   "cache": {
+    "read": 896,
+    "write": 0
+   }
+  }
+ },
+ {
+  "id": "msg_21ae270d30015xKVfXp3XbOeRd",
+  "time": {
+   "created": 1795747377363
+  },
+  "type": "idle",
+  "outcome": "succeeded"
+ }
+]

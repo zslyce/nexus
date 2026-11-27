@@ -1,0 +1,884 @@
+[
+ {
+  "at": 7,
+  "id": "evt_21ae24fdd001tu79y4BwQ1JoDb",
+  "type": "server.connected",
+  "data": {}
+ },
+ {
+  "at": 527,
+  "id": "evt_21ae251e30015MarJ2X3mywk47",
+  "created": 1795747369443,
+  "type": "session.created",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "slug": "kind-garden",
+   "version": "2.4.2",
+   "projectID": "c245fb8086f4680a8768fa7d9c7e1a7cd17e7abc",
+   "location": {
+    "directory": "C:\\workspace"
+   },
+   "subpath": "",
+   "title": "nexus-probe-1",
+   "agent": "nexus-probe",
+   "metadata": {
+    "nexusTaskId": "probe-1"
+   },
+   "permissions": [
+    {
+     "action": "external_directory",
+     "resource": "*",
+     "effect": "deny"
+    },
+    {
+     "action": "subagent",
+     "resource": "*",
+     "effect": "deny"
+    },
+    {
+     "action": "question",
+     "resource": "*",
+     "effect": "deny"
+    }
+   ],
+   "model": {
+    "id": "deepseek-v4.1-flash",
+    "providerID": "opencode-go",
+    "variant": "low"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 0,
+   "version": 1
+  }
+ },
+ {
+  "at": 567,
+  "id": "evt_21ae251ec001OsNorvr1xilnxZ",
+  "created": 1795747369452,
+  "type": "session.inbox.enqueued",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "inboxID": "msg_nexusprobemwydma5h",
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "item": {
+    "type": "user",
+    "payload": {
+     "text": "Read notes.txt and reply with only its first line."
+    },
+    "delivery": "steer"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 1,
+   "version": 1
+  }
+ },
+ {
+  "at": 570,
+  "id": "evt_21ae251f00012sV3SEVShSTzdA",
+  "created": 1795747369456,
+  "type": "session.execution.started",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 2,
+   "version": 1
+  }
+ },
+ {
+  "at": 570,
+  "id": "evt_21ae251f70016wZuujYQutoEHC",
+  "created": 1795747369463,
+  "metadata": {
+   "instructions": {
+    "initial": true
+   }
+  },
+  "type": "session.instructions.updated",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "delta": {
+    "core/date": "a48a576869942de9a5bb254acfd0a78e89c5b28a7350d3111c7c7fcbb491f44b",
+    "core/environment": "2961b1e0aafb06902c6e9b5566b8559d0603d7d023aa5dfed8d134337181a8ca"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 3,
+   "version": 2
+  }
+ },
+ {
+  "at": 570,
+  "id": "evt_21ae251f80015O3e3aTZ8Gk2aA",
+  "created": 1795747369464,
+  "type": "session.inbox.delivered",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "inboxID": "msg_nexusprobemwydma5h"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 4,
+   "version": 1
+  }
+ },
+ {
+  "at": 1924,
+  "id": "evt_21ae257530013W2izb8mXjHkrr",
+  "created": 1795747370836,
+  "type": "session.step.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "agent": "nexus-probe",
+   "model": {
+    "id": "deepseek-v4.1-flash",
+    "providerID": "opencode-go",
+    "variant": "low"
+   },
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "started": 1795747369485
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 5,
+   "version": 1
+  }
+ },
+ {
+  "at": 1924,
+  "id": "evt_21ae25758001yVHlk13jBSKuNH",
+  "created": 1795747370840,
+  "type": "session.step.first-token",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 6,
+   "version": 1
+  }
+ },
+ {
+  "at": 1924,
+  "id": "evt_21ae2575a001R977z57S7XO5Lg",
+  "created": 1795747370842,
+  "type": "session.tool.input.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "id": "call_62de270cc30e43f1834e3ac3",
+   "name": "read"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 7,
+   "version": 1
+  }
+ },
+ {
+  "at": 7242,
+  "id": "evt_21ae26c1a0014kRXEkdZaQi91x",
+  "created": 1795747376154,
+  "type": "session.tool.input.ended",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "id": "call_62de270cc30e43f1834e3ac3",
+   "text": "{\"path\":\"C:workspace\\notes.txt\"}"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 8,
+   "version": 1
+  }
+ },
+ {
+  "at": 7242,
+  "id": "evt_21ae26c1c0016pMU7T0GMk4Mmz",
+  "created": 1795747376156,
+  "type": "session.tool.called",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "id": "call_62de270cc30e43f1834e3ac3",
+   "input": {
+    "path": "C:\\workspace\\notes.txt"
+   },
+   "executed": false
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 9,
+   "version": 1
+  }
+ },
+ {
+  "at": 7242,
+  "id": "evt_21ae26c1d001x3ww33x2bnoCW7",
+  "created": 1795747376157,
+  "type": "session.step.streamed",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 10,
+   "version": 1
+  }
+ },
+ {
+  "at": 7266,
+  "id": "evt_21ae26c23001565WuwRBgiCf18",
+  "created": 1795747376163,
+  "type": "session.tool.success",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "id": "call_62de270cc30e43f1834e3ac3",
+   "content": [
+    {
+     "type": "text",
+     "text": "Read file C:\\workspace\\notes.txt, lines 1-2\n1: alpha\n2: beta"
+    }
+   ],
+   "metadata": {
+    "truncated": false
+   },
+   "executed": false
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 11,
+   "version": 2
+  }
+ },
+ {
+  "at": 7266,
+  "id": "evt_21ae26c25001hY2QQa0mgvZR5k",
+  "created": 1795747376165,
+  "type": "session.step.ended",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae25206001fNb66CNexJGah7",
+   "finish": "tool-calls",
+   "rawFinish": "tool_calls",
+   "tokens": {
+    "input": 913,
+    "output": 106,
+    "reasoning": 0,
+    "cache": {
+     "read": 0,
+     "write": 0
+    }
+   },
+   "cost": 0
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 12,
+   "version": 1
+  }
+ },
+ {
+  "at": 7266,
+  "id": "evt_21ae26c26001xV55kPjtQcqXIC",
+  "created": 1795747376166,
+  "type": "session.usage.updated",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "cost": 0,
+   "tokens": {
+    "input": 913,
+    "output": 106,
+    "reasoning": 0,
+    "cache": {
+     "read": 0,
+     "write": 0
+    }
+   }
+  }
+ },
+ {
+  "at": 8432,
+  "id": "evt_21ae270c20016BB4kGypoCEFbk",
+  "created": 1795747377346,
+  "type": "session.step.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "agent": "nexus-probe",
+   "model": {
+    "id": "deepseek-v4.1-flash",
+    "providerID": "opencode-go",
+    "variant": "low"
+   },
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj",
+   "started": 1795747376182
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 13,
+   "version": 1
+  }
+ },
+ {
+  "at": 8432,
+  "id": "evt_21ae270c4001cwi7GV37Kq3D2V",
+  "created": 1795747377348,
+  "type": "session.step.first-token",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 14,
+   "version": 1
+  }
+ },
+ {
+  "at": 8432,
+  "id": "evt_21ae270c60014tSDfoaCsGBKSE",
+  "created": 1795747377350,
+  "type": "session.text.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj",
+   "ordinal": 0
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 15,
+   "version": 1
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270cb001mHOh74rtClt4Ff",
+  "created": 1795747377356,
+  "type": "session.text.delta",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj",
+   "ordinal": 0,
+   "delta": "alpha"
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270cc00127vcsvjv61Tt1F",
+  "created": 1795747377356,
+  "type": "session.text.ended",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj",
+   "ordinal": 0,
+   "text": "alpha"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 16,
+   "version": 1
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270cd001W7Hi5aRdi4S1VZ",
+  "created": 1795747377357,
+  "type": "session.step.streamed",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 17,
+   "version": 1
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270ce001q9M8LWX1M51sSZ",
+  "created": 1795747377358,
+  "type": "session.step.ended",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "assistantMessageID": "msg_21ae26c31001uasLkj3q2lwQcj",
+   "finish": "stop",
+   "rawFinish": "stop",
+   "tokens": {
+    "input": 219,
+    "output": 3,
+    "reasoning": 0,
+    "cache": {
+     "read": 896,
+     "write": 0
+    }
+   },
+   "cost": 0
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 18,
+   "version": 1
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270cf001utGmGHX4km1p7U",
+  "created": 1795747377359,
+  "type": "session.usage.updated",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX",
+   "cost": 0,
+   "tokens": {
+    "input": 1132,
+    "output": 109,
+    "reasoning": 0,
+    "cache": {
+     "read": 896,
+     "write": 0
+    }
+   }
+  }
+ },
+ {
+  "at": 8447,
+  "id": "evt_21ae270d30015xKVfXp3XbOeRd",
+  "created": 1795747377363,
+  "type": "session.execution.succeeded",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 19,
+   "version": 1
+  }
+ },
+ {
+  "at": 9296,
+  "id": "evt_21ae27420001AU6I2sVdQGvFSt",
+  "created": 1795747378208,
+  "type": "session.execution.started",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 20,
+   "version": 1
+  }
+ },
+ {
+  "at": 9296,
+  "id": "evt_21ae27424001oKunJ5GbbOakZu",
+  "created": 1795747378212,
+  "type": "session.execution.succeeded",
+  "data": {
+   "sessionID": "ses_de51dae21ffel5eValadWTpxGX"
+  },
+  "durable": {
+   "aggregateID": "ses_de51dae21ffel5eValadWTpxGX",
+   "seq": 21,
+   "version": 1
+  }
+ },
+ {
+  "at": 9331,
+  "id": "evt_21ae27446001AYXa37bau5EasA",
+  "created": 1795747378246,
+  "type": "session.created",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "slug": "hidden-pixel",
+   "version": "2.4.2",
+   "projectID": "c245fb8086f4680a8768fa7d9c7e1a7cd17e7abc",
+   "location": {
+    "directory": "C:\\workspace"
+   },
+   "subpath": "",
+   "title": "nexus-probe-2",
+   "agent": "nexus-probe",
+   "permissions": [
+    {
+     "action": "external_directory",
+     "resource": "*",
+     "effect": "deny"
+    },
+    {
+     "action": "subagent",
+     "resource": "*",
+     "effect": "deny"
+    },
+    {
+     "action": "question",
+     "resource": "*",
+     "effect": "deny"
+    }
+   ],
+   "model": {
+    "id": "deepseek-v4.1-flash",
+    "providerID": "opencode-go",
+    "variant": "low"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 0,
+   "version": 1
+  }
+ },
+ {
+  "at": 9381,
+  "id": "evt_21ae2745d001iLvDmJtCaJNbOo",
+  "created": 1795747378269,
+  "type": "session.inbox.enqueued",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "inboxID": "msg_21ae2745b001rbVeMxZ39tsD3s",
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "item": {
+    "type": "user",
+    "payload": {
+     "text": "Count from 1 to 3000, one number per line."
+    },
+    "delivery": "steer"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 1,
+   "version": 1
+  }
+ },
+ {
+  "at": 9381,
+  "id": "evt_21ae274610011SaLYN5tvRo4wn",
+  "created": 1795747378273,
+  "type": "session.execution.started",
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ"
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 2,
+   "version": 1
+  }
+ },
+ {
+  "at": 9381,
+  "id": "evt_21ae27469001vjgNnXzdrJXKFd",
+  "created": 1795747378281,
+  "metadata": {
+   "instructions": {
+    "initial": true
+   }
+  },
+  "type": "session.instructions.updated",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "delta": {
+    "core/date": "a48a576869942de9a5bb254acfd0a78e89c5b28a7350d3111c7c7fcbb491f44b",
+    "core/environment": "2961b1e0aafb06902c6e9b5566b8559d0603d7d023aa5dfed8d134337181a8ca"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 3,
+   "version": 2
+  }
+ },
+ {
+  "at": 9381,
+  "id": "evt_21ae2746a001qMOJoOj6lWgZCC",
+  "created": 1795747378282,
+  "type": "session.inbox.delivered",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "inboxID": "msg_21ae2745b001rbVeMxZ39tsD3s"
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 4,
+   "version": 1
+  }
+ },
+ {
+  "at": 11413,
+  "id": "evt_21ae27c66001Kmv9hSarUyN9gU",
+  "created": 1795747380326,
+  "type": "session.step.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "agent": "nexus-probe",
+   "model": {
+    "id": "deepseek-v4.1-flash",
+    "providerID": "opencode-go",
+    "variant": "low"
+   },
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "started": 1795747378298
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 5,
+   "version": 1
+  }
+ },
+ {
+  "at": 11413,
+  "id": "evt_21ae27c69001i6pc0M1Xp2GYni",
+  "created": 1795747380329,
+  "type": "session.step.first-token",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU"
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 6,
+   "version": 1
+  }
+ },
+ {
+  "at": 11413,
+  "id": "evt_21ae27c6a001lXuS2R5m5gWRdb",
+  "created": 1795747380330,
+  "type": "session.reasoning.started",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "native": {
+    "reasoningField": "reasoning_content"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 7,
+   "version": 1
+  }
+ },
+ {
+  "at": 11513,
+  "id": "evt_21ae27cd00016SPeLk03S6Ol1A",
+  "created": 1795747380432,
+  "type": "session.reasoning.delta",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "delta": "The user asks to"
+  }
+ },
+ {
+  "at": 11620,
+  "id": "evt_21ae27d3b001B2Md9aNofChkop",
+  "created": 1795747380539,
+  "type": "session.reasoning.delta",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "delta": " count from 1 to 3000, one number"
+  }
+ },
+ {
+  "at": 11794,
+  "id": "evt_21ae27de9001G2diJVj4dV9cEA",
+  "created": 1795747380713,
+  "type": "session.reasoning.delta",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "delta": " per line. That"
+  }
+ },
+ {
+  "at": 11902,
+  "id": "evt_21ae27e4c001DEoBns6q1grI6J",
+  "created": 1795747380812,
+  "type": "session.reasoning.delta",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "delta": "'s a lot of output."
+  }
+ },
+ {
+  "at": 11902,
+  "id": "evt_21ae27e4c0021IOZmu5sl1ktDU",
+  "created": 1795747380812,
+  "type": "session.reasoning.ended",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "ordinal": 0,
+   "text": "The user asks to count from 1 to 3000, one number per line. That's a lot of output.",
+   "native": {
+    "reasoningField": "reasoning_content"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 8,
+   "version": 1
+  }
+ },
+ {
+  "at": 11902,
+  "id": "evt_21ae27e4e0013sjek4bZtlr3Dc",
+  "created": 1795747380814,
+  "type": "session.step.streamed",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU"
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 9,
+   "version": 1
+  }
+ },
+ {
+  "at": 11902,
+  "id": "evt_21ae27e4f0018mhDMZNFnt3FjH",
+  "created": 1795747380815,
+  "type": "session.step.failed",
+  "location": {
+   "directory": "C:\\workspace"
+  },
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "assistantMessageID": "msg_21ae27472001BwaZrUmNv8NYXU",
+   "error": {
+    "type": "aborted",
+    "message": "Step interrupted"
+   }
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 10,
+   "version": 1
+  }
+ },
+ {
+  "at": 11902,
+  "id": "evt_21ae27e52001sUXa1CVruJorA5",
+  "created": 1795747380818,
+  "type": "session.execution.interrupted",
+  "data": {
+   "sessionID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "reason": "user"
+  },
+  "durable": {
+   "aggregateID": "ses_de51d8bbeffeQTw5igcc64MpDQ",
+   "seq": 11,
+   "version": 1
+  }
+ }
+]
